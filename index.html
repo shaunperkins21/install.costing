@@ -240,16 +240,44 @@ input:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 
   <div class="actions" style="margin-bottom:18px">
     <input id="searchJobs" class="search" placeholder="Search Jobs" oninput="renderJobs()">
   </div>
-  <div id="jobList"><div class="job active">
-      <div class="job-number">Job 1</div>
-      <div class="job-address"></div>
+  <div id="jobList"><div class="job">
+      <div class="job-number">Job No: 61753</div>
+      <div class="job-address">1-8 Deuter Rd, Burton (Yard Address) </div>
       <div class="job-controls">
         <button class="btn" onclick="duplicateJobHandler(event,0)">Copy</button>
         <button class="btn" onclick="deleteJobHandler(event,0)">Delete</button>
       </div>
+    </div><div class="job">
+      <div class="job-number">Job No: 61333</div>
+      <div class="job-address">Lot 874 Vino Street, Angle Vale </div>
+      <div class="job-controls">
+        <button class="btn" onclick="duplicateJobHandler(event,1)">Copy</button>
+        <button class="btn" onclick="deleteJobHandler(event,1)">Delete</button>
+      </div>
+    </div><div class="job">
+      <div class="job-number">Job No: 53880</div>
+      <div class="job-address">LOT 20 CROSS ST, ANGASTON  </div>
+      <div class="job-controls">
+        <button class="btn" onclick="duplicateJobHandler(event,2)">Copy</button>
+        <button class="btn" onclick="deleteJobHandler(event,2)">Delete</button>
+      </div>
+    </div><div class="job">
+      <div class="job-number">Job No: 61867</div>
+      <div class="job-address">LOT 13 (NO.9) CURB STREET,SADDLEWORTH</div>
+      <div class="job-controls">
+        <button class="btn" onclick="duplicateJobHandler(event,3)">Copy</button>
+        <button class="btn" onclick="deleteJobHandler(event,3)">Delete</button>
+      </div>
+    </div><div class="job active">
+      <div class="job-number">Job 5</div>
+      <div class="job-address"></div>
+      <div class="job-controls">
+        <button class="btn" onclick="duplicateJobHandler(event,4)">Copy</button>
+        <button class="btn" onclick="deleteJobHandler(event,4)">Delete</button>
+      </div>
     </div></div>
     <div class="sidebar-footer" style="margin-top:16px;padding-top:12px;border-top:1px solid rgba(31,41,55,0.12);display:flex;flex-direction:column;gap:6px">
-    <div id="footerJobs" class="muted" style="color:#000000">Jobs: 1</div>
+    <div id="footerJobs" class="muted" style="color:#000000">Jobs: 5</div>
   </div>
 </div>
 
@@ -486,320 +514,397 @@ input:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 
             <td id="t19" class="line-total currency">$0.00</td>
             <td class="print-hide" style="text-align:center;"></td>
           </tr><tr>
-            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Dishwasher Panel</span></div><div class="item-note">freestanding dw panel, per panel</div></div></td>
-            <td class="unit-price price"><input id="p20" class="currency" value="15" oninput="priceChanged(20)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
+            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Bench Panels</span></div><div class="item-note">each</div></div></td>
+            <td class="unit-price price"><input id="p20" class="currency" value="10" oninput="priceChanged(20)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
             <td class="qty-cell qty">
               <input id="q20" value="" oninput="qtyChanged(20)" onblur="finaliseQtyInput(this)">
             </td>
             <td id="t20" class="line-total currency">$0.00</td>
             <td class="print-hide" style="text-align:center;"></td>
           </tr><tr>
-            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Overhead Coloured Bottoms</span></div><div class="item-note">not fitted to cabinets from factory. per panel</div></div></td>
-            <td class="unit-price price"><input id="p21" class="currency" value="10" oninput="priceChanged(21)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
+            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Dishwasher Panel</span></div><div class="item-note">freestanding dw panel, per panel</div></div></td>
+            <td class="unit-price price"><input id="p21" class="currency" value="15" oninput="priceChanged(21)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
             <td class="qty-cell qty">
               <input id="q21" value="" oninput="qtyChanged(21)" onblur="finaliseQtyInput(this)">
             </td>
             <td id="t21" class="line-total currency">$0.00</td>
             <td class="print-hide" style="text-align:center;"></td>
           </tr><tr>
-            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Walk in Pantry Door</span></div><div class="item-note">fitted to builders doors jam. per door</div></div></td>
-            <td class="unit-price price"><input id="p22" class="currency" value="40" oninput="priceChanged(22)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
+            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Overhead Coloured Bottoms</span></div><div class="item-note">not fitted to cabinets from factory. per panel</div></div></td>
+            <td class="unit-price price"><input id="p22" class="currency" value="10" oninput="priceChanged(22)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
             <td class="qty-cell qty">
               <input id="q22" value="" oninput="qtyChanged(22)" onblur="finaliseQtyInput(this)">
             </td>
             <td id="t22" class="line-total currency">$0.00</td>
             <td class="print-hide" style="text-align:center;"></td>
           </tr><tr>
-            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Wingline Doors</span></div><div class="item-note">per door</div></div></td>
-            <td class="unit-price price"><input id="p23" class="currency" value="35" oninput="priceChanged(23)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
+            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Walk in Pantry Door</span></div><div class="item-note">fitted to builders doors jam. per door</div></div></td>
+            <td class="unit-price price"><input id="p23" class="currency" value="40" oninput="priceChanged(23)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
             <td class="qty-cell qty">
               <input id="q23" value="" oninput="qtyChanged(23)" onblur="finaliseQtyInput(this)">
             </td>
             <td id="t23" class="line-total currency">$0.00</td>
             <td class="print-hide" style="text-align:center;"></td>
+          </tr><tr>
+            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Wingline Doors</span></div><div class="item-note">per door</div></div></td>
+            <td class="unit-price price"><input id="p24" class="currency" value="35" oninput="priceChanged(24)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
+            <td class="qty-cell qty">
+              <input id="q24" value="" oninput="qtyChanged(24)" onblur="finaliseQtyInput(this)">
+            </td>
+            <td id="t24" class="line-total currency">$0.00</td>
+            <td class="print-hide" style="text-align:center;"></td>
           </tr><tr class="divider-row">
           <td class="item-name"><div class="divider-display"><span class="line"></span><span class="label">TOP FILLER / KICKERS</span><span class="line"></span></div></td>
           <td class="unit-price price" style="color:#94a3b8;">—</td>
           <td class="qty-cell qty" style="color:#94a3b8;">—</td>
-          <td id="t24" class="line-total currency"></td>
+          <td id="t25" class="line-total currency"></td>
           <td class="print-hide" style="text-align:center;"></td>
         </tr><tr>
             <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Top Fillers </span></div><div class="item-note">not to ceiling (corniced) per mtr</div></div></td>
-            <td class="unit-price price"><input id="p25" class="currency" value="15" oninput="priceChanged(25)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
-            <td class="qty-cell qty">
-              <input id="q25" value="" oninput="qtyChanged(25)" onblur="finaliseQtyInput(this)">
-            </td>
-            <td id="t25" class="line-total currency">$0.00</td>
-            <td class="print-hide" style="text-align:center;"></td>
-          </tr><tr>
-            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Scribed Top Fillers </span></div><div class="item-note">to ceiling (not corniced) per mtr</div></div></td>
-            <td class="unit-price price"><input id="p26" class="currency" value="26" oninput="priceChanged(26)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
+            <td class="unit-price price"><input id="p26" class="currency" value="15" oninput="priceChanged(26)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
             <td class="qty-cell qty">
               <input id="q26" value="" oninput="qtyChanged(26)" onblur="finaliseQtyInput(this)">
             </td>
             <td id="t26" class="line-total currency">$0.00</td>
             <td class="print-hide" style="text-align:center;"></td>
           </tr><tr>
-            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Scribed Bulkhead </span></div><div class="item-note">bulkhead 300mm or more. per mtr</div></div></td>
-            <td class="unit-price price"><input id="p27" class="currency" value="30" oninput="priceChanged(27)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
+            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Scribed Top Fillers </span></div><div class="item-note">to ceiling (not corniced) per mtr</div></div></td>
+            <td class="unit-price price"><input id="p27" class="currency" value="20" oninput="priceChanged(27)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
             <td class="qty-cell qty">
               <input id="q27" value="" oninput="qtyChanged(27)" onblur="finaliseQtyInput(this)">
             </td>
             <td id="t27" class="line-total currency">$0.00</td>
             <td class="print-hide" style="text-align:center;"></td>
           </tr><tr>
-            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Recessed kicker base</span><button type="button" class="threshold-toggle-btn" onclick="toggleThresholdDetails(event,28)">Breakdown ▼</button></div><div class="item-note">per length</div></div></td>
-            <td class="unit-price price" style="color:#64748b;">—</td>
-            <td class="qty-cell qty" style="color:#64748b;">—</td>
+            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Scribed Bulkhead </span></div><div class="item-note">bulkhead 300mm or more. per mtr</div></div></td>
+            <td class="unit-price price"><input id="p28" class="currency" value="30" oninput="priceChanged(28)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
+            <td class="qty-cell qty">
+              <input id="q28" value="" oninput="qtyChanged(28)" onblur="finaliseQtyInput(this)">
+            </td>
             <td id="t28" class="line-total currency">$0.00</td>
             <td class="print-hide" style="text-align:center;"></td>
           </tr><tr>
-            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Scribe Kicker / Panels To Tiled Vanities</span></div><div class="item-note">per room</div></div></td>
-            <td class="unit-price price"><input id="p29" class="currency" value="25" oninput="priceChanged(29)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
-            <td class="qty-cell qty">
-              <input id="q29" value="" oninput="qtyChanged(29)" onblur="finaliseQtyInput(this)">
-            </td>
+            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Recessed kicker base</span><button type="button" class="threshold-toggle-btn" onclick="toggleThresholdDetails(event,29)">Breakdown ▼</button></div><div class="item-note">per length</div></div></td>
+            <td class="unit-price price" style="color:#64748b;">—</td>
+            <td class="qty-cell qty" style="color:#64748b;">—</td>
             <td id="t29" class="line-total currency">$0.00</td>
             <td class="print-hide" style="text-align:center;"></td>
           </tr><tr>
-            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Scribe Kicker / Panels To Tiled Laundry</span></div><div class="item-note">per room</div></div></td>
-            <td class="unit-price price"><input id="p30" class="currency" value="35" oninput="priceChanged(30)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
+            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Scribe Kicker / Panels To Tiled Vanities</span></div><div class="item-note">per room</div></div></td>
+            <td class="unit-price price"><input id="p30" class="currency" value="25" oninput="priceChanged(30)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
             <td class="qty-cell qty">
               <input id="q30" value="" oninput="qtyChanged(30)" onblur="finaliseQtyInput(this)">
             </td>
             <td id="t30" class="line-total currency">$0.00</td>
             <td class="print-hide" style="text-align:center;"></td>
           </tr><tr>
-            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Scribe Kickers To Floor With Flooring allowance</span></div><div class="item-note">scribed gap for flooring to fit between concrete and kicker at specified size by builder. per mtr</div></div></td>
-            <td class="unit-price price"><input id="p31" class="currency" value="15" oninput="priceChanged(31)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
+            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Scribe Kicker / Panels To Tiled Laundry bench cabinets</span></div><div class="item-note">per room</div></div></td>
+            <td class="unit-price price"><input id="p31" class="currency" value="30" oninput="priceChanged(31)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
             <td class="qty-cell qty">
               <input id="q31" value="" oninput="qtyChanged(31)" onblur="finaliseQtyInput(this)">
             </td>
             <td id="t31" class="line-total currency">$0.00</td>
             <td class="print-hide" style="text-align:center;"></td>
+          </tr><tr>
+            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Scribe Kicker / Panels To Tiled Laundry Linens</span></div><div class="item-note">per room</div></div></td>
+            <td class="unit-price price"><input id="p32" class="currency" value="50" oninput="priceChanged(32)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
+            <td class="qty-cell qty">
+              <input id="q32" value="" oninput="qtyChanged(32)" onblur="finaliseQtyInput(this)">
+            </td>
+            <td id="t32" class="line-total currency">$0.00</td>
+            <td class="print-hide" style="text-align:center;"></td>
+          </tr><tr>
+            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Scribe Kickers To Floor With Flooring allowance</span></div><div class="item-note">scribed gap for flooring to fit between concrete and kicker at specified size by builder. per mtr</div></div></td>
+            <td class="unit-price price"><input id="p33" class="currency" value="15" oninput="priceChanged(33)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
+            <td class="qty-cell qty">
+              <input id="q33" value="" oninput="qtyChanged(33)" onblur="finaliseQtyInput(this)">
+            </td>
+            <td id="t33" class="line-total currency">$0.00</td>
+            <td class="print-hide" style="text-align:center;"></td>
           </tr><tr class="divider-row">
           <td class="item-name"><div class="divider-display"><span class="line"></span><span class="label">SHELVING</span><span class="line"></span></div></td>
           <td class="unit-price price" style="color:#94a3b8;">—</td>
           <td class="qty-cell qty" style="color:#94a3b8;">—</td>
-          <td id="t32" class="line-total currency"></td>
+          <td id="t34" class="line-total currency"></td>
           <td class="print-hide" style="text-align:center;"></td>
         </tr><tr>
-            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Walk In Robe Shelf</span><button type="button" class="threshold-toggle-btn" onclick="toggleThresholdDetails(event,33)">Breakdown ▼</button></div><div class="item-note">per length</div></div></td>
-            <td class="unit-price price" style="color:#64748b;">—</td>
-            <td class="qty-cell qty" style="color:#64748b;">—</td>
-            <td id="t33" class="line-total currency">$0.00</td>
-            <td class="print-hide" style="text-align:center;"></td>
-          </tr><tr>
-            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Cleated Shelf</span><button type="button" class="threshold-toggle-btn" onclick="toggleThresholdDetails(event,34)">Breakdown ▼</button></div><div class="item-note">per length</div></div></td>
-            <td class="unit-price price" style="color:#64748b;">—</td>
-            <td class="qty-cell qty" style="color:#64748b;">—</td>
-            <td id="t34" class="line-total currency">$0.00</td>
-            <td class="print-hide" style="text-align:center;"></td>
-          </tr><tr>
-            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Walk In Pantry Shelf</span><button type="button" class="threshold-toggle-btn" onclick="toggleThresholdDetails(event,35)">Breakdown ▼</button></div><div class="item-note">post and rail. per length</div></div></td>
+            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Walk In Robe Shelf</span><button type="button" class="threshold-toggle-btn" onclick="toggleThresholdDetails(event,35)">Hide Breakdown ▲</button></div><div class="item-note">per length</div></div></td>
             <td class="unit-price price" style="color:#64748b;">—</td>
             <td class="qty-cell qty" style="color:#64748b;">—</td>
             <td id="t35" class="line-total currency">$0.00</td>
             <td class="print-hide" style="text-align:center;"></td>
-          </tr><tr>
-            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Divisions</span></div><div class="item-note">per div</div></div></td>
-            <td class="unit-price price"><input id="p36" class="currency" value="15" oninput="priceChanged(36)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
-            <td class="qty-cell qty">
-              <input id="q36" value="" oninput="qtyChanged(36)" onblur="finaliseQtyInput(this)">
-            </td>
+          </tr><tr class="threshold-details-row print-hide">
+        <td colspan="5">
+          <div class="threshold-details">
+            <div class="threshold-details-label">Details</div>
+            <div class="threshold-table-wrap">
+              <table class="threshold-details-table">
+                <thead>
+                  <tr>
+                    <th>Shelf</th>
+                    <th>Length (mm)</th>
+                    <th>Amount</th>
+                    <th>Price</th>
+                    <th>Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                    <tr>
+                      <td>Shelf 1</td>
+                      <td>
+                        <input id="threshold-length-35-0" type="number" inputmode="numeric" placeholder="Length (mm)" value="" oninput="thresholdLengthChanged(35, 0, this.value)">
+                      </td>
+                      <td>
+                        <select id="threshold-amount-35-0" onchange="thresholdAmountChanged(35, 0, this.value)" style="width:74px;padding:7px 10px;border-radius:8px;border:1px solid #d1d5db;background:#fff;color:#0f172a;font-size:13px;line-height:1.2;">
+                          <option value="1" selected="">1x</option><option value="2">2x</option><option value="3">3x</option><option value="4">4x</option><option value="5">5x</option>
+                        </select>
+                      </td>
+                      <td id="threshold-price-35-0" class="currency threshold-price-cell">$0.00</td>
+                      <td><button type="button" class="btn" onclick="deleteThresholdLength(event, 35, 0)">Delete</button></td>
+                    </tr>
+                  
+                </tbody>
+              </table>
+            </div>
+            <div class="threshold-action-row">
+              <button type="button" class="btn primary" onclick="addThresholdLength(event, 35)">+ Add Shelf</button>
+            </div>
+            <div class="threshold-summary">
+              <div class="summary-box">
+                <div class="label">Shelfs</div>
+                <div id="threshold-count-35" class="value">1</div>
+              </div>
+              <div class="summary-box">
+                <div class="label">Total Length</div>
+                <div id="threshold-total-length-35" class="value">0</div>
+              </div>
+              <div class="summary-box">
+                <div class="label">Total Price</div>
+                <div id="threshold-total-price-35" class="value">$0.00</div>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr><tr>
+            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Cleated Shelf</span><button type="button" class="threshold-toggle-btn" onclick="toggleThresholdDetails(event,36)">Breakdown ▼</button></div><div class="item-note">per length</div></div></td>
+            <td class="unit-price price" style="color:#64748b;">—</td>
+            <td class="qty-cell qty" style="color:#64748b;">—</td>
             <td id="t36" class="line-total currency">$0.00</td>
             <td class="print-hide" style="text-align:center;"></td>
           </tr><tr>
-            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>WIR Drawer and Shelf Cabinet</span></div><div class="item-note">per cabinet</div></div></td>
-            <td class="unit-price price"><input id="p37" class="currency" value="30" oninput="priceChanged(37)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
-            <td class="qty-cell qty">
-              <input id="q37" value="" oninput="qtyChanged(37)" onblur="finaliseQtyInput(this)">
-            </td>
+            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Walk In Pantry Shelf</span><button type="button" class="threshold-toggle-btn" onclick="toggleThresholdDetails(event,37)">Breakdown ▼</button></div><div class="item-note">post and rail. per length</div></div></td>
+            <td class="unit-price price" style="color:#64748b;">—</td>
+            <td class="qty-cell qty" style="color:#64748b;">—</td>
             <td id="t37" class="line-total currency">$0.00</td>
             <td class="print-hide" style="text-align:center;"></td>
           </tr><tr>
-            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Floating Shelf</span></div><div class="item-note">per shelf</div></div></td>
-            <td class="unit-price price"><input id="p38" class="currency" value="35" oninput="priceChanged(38)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
+            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Divisions</span></div><div class="item-note">per div</div></div></td>
+            <td class="unit-price price"><input id="p38" class="currency" value="15" oninput="priceChanged(38)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
             <td class="qty-cell qty">
               <input id="q38" value="" oninput="qtyChanged(38)" onblur="finaliseQtyInput(this)">
             </td>
             <td id="t38" class="line-total currency">$0.00</td>
             <td class="print-hide" style="text-align:center;"></td>
-          </tr><tr class="divider-row">
-          <td class="item-name"><div class="divider-display"><span class="line"></span><span class="label">MISCELLANEOUS ITEMS</span><span class="line"></span></div></td>
-          <td class="unit-price price" style="color:#94a3b8;">—</td>
-          <td class="qty-cell qty" style="color:#94a3b8;">—</td>
-          <td id="t39" class="line-total currency"></td>
-          <td class="print-hide" style="text-align:center;"></td>
-        </tr><tr>
-            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Strip Lighting </span></div><div class="item-note">install cables and transformer above overheads, per section</div></div></td>
+          </tr><tr>
+            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>WIR Drawer and Shelf Cabinet</span></div><div class="item-note">per cabinet</div></div></td>
+            <td class="unit-price price"><input id="p39" class="currency" value="30" oninput="priceChanged(39)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
+            <td class="qty-cell qty">
+              <input id="q39" value="" oninput="qtyChanged(39)" onblur="finaliseQtyInput(this)">
+            </td>
+            <td id="t39" class="line-total currency">$0.00</td>
+            <td class="print-hide" style="text-align:center;"></td>
+          </tr><tr>
+            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Floating Shelf</span></div><div class="item-note">per shelf</div></div></td>
             <td class="unit-price price"><input id="p40" class="currency" value="35" oninput="priceChanged(40)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
             <td class="qty-cell qty">
               <input id="q40" value="" oninput="qtyChanged(40)" onblur="finaliseQtyInput(this)">
             </td>
             <td id="t40" class="line-total currency">$0.00</td>
             <td class="print-hide" style="text-align:center;"></td>
-          </tr><tr>
-            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Power Points</span></div><div class="item-note">per power point</div></div></td>
-            <td class="unit-price price"><input id="p41" class="currency" value="5" oninput="priceChanged(41)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
-            <td class="qty-cell qty">
-              <input id="q41" value="" oninput="qtyChanged(41)" onblur="finaliseQtyInput(this)">
-            </td>
-            <td id="t41" class="line-total currency">$0.00</td>
-            <td class="print-hide" style="text-align:center;"></td>
-          </tr><tr>
-            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>B Grip rails</span></div><div class="item-note">per house</div></div></td>
-            <td class="unit-price price"><input id="p42" class="currency" value="31" oninput="priceChanged(42)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
+          </tr><tr class="divider-row">
+          <td class="item-name"><div class="divider-display"><span class="line"></span><span class="label">MISCELLANEOUS ITEMS</span><span class="line"></span></div></td>
+          <td class="unit-price price" style="color:#94a3b8;">—</td>
+          <td class="qty-cell qty" style="color:#94a3b8;">—</td>
+          <td id="t41" class="line-total currency"></td>
+          <td class="print-hide" style="text-align:center;"></td>
+        </tr><tr>
+            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Strip Lighting </span></div><div class="item-note">install cables and transformer above overheads, per section</div></div></td>
+            <td class="unit-price price"><input id="p42" class="currency" value="35" oninput="priceChanged(42)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
             <td class="qty-cell qty">
               <input id="q42" value="" oninput="qtyChanged(42)" onblur="finaliseQtyInput(this)">
             </td>
             <td id="t42" class="line-total currency">$0.00</td>
             <td class="print-hide" style="text-align:center;"></td>
           </tr><tr>
-            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Shadow Line</span></div><div class="item-note">per mtr</div></div></td>
-            <td class="unit-price price"><input id="p43" class="currency" value="15" oninput="priceChanged(43)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
+            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Power Points</span></div><div class="item-note">per power point</div></div></td>
+            <td class="unit-price price"><input id="p43" class="currency" value="5" oninput="priceChanged(43)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
             <td class="qty-cell qty">
               <input id="q43" value="" oninput="qtyChanged(43)" onblur="finaliseQtyInput(this)">
             </td>
             <td id="t43" class="line-total currency">$0.00</td>
             <td class="print-hide" style="text-align:center;"></td>
           </tr><tr>
-            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Laminated Feature Box</span></div><div class="item-note">per box</div></div></td>
-            <td class="unit-price price"><input id="p44" class="currency" value="16" oninput="priceChanged(44)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
+            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>B Grip rails</span></div><div class="item-note">per house</div></div></td>
+            <td class="unit-price price"><input id="p44" class="currency" value="31" oninput="priceChanged(44)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
             <td class="qty-cell qty">
               <input id="q44" value="" oninput="qtyChanged(44)" onblur="finaliseQtyInput(this)">
             </td>
             <td id="t44" class="line-total currency">$0.00</td>
             <td class="print-hide" style="text-align:center;"></td>
           </tr><tr>
-            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Metro Sink Setup</span></div><div class="item-note">per sink cabinet</div></div></td>
+            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Shadow Line</span></div><div class="item-note">per mtr</div></div></td>
             <td class="unit-price price"><input id="p45" class="currency" value="15" oninput="priceChanged(45)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
             <td class="qty-cell qty">
               <input id="q45" value="" oninput="qtyChanged(45)" onblur="finaliseQtyInput(this)">
             </td>
             <td id="t45" class="line-total currency">$0.00</td>
             <td class="print-hide" style="text-align:center;"></td>
-          </tr><tr class="divider-row">
-          <td class="item-name"><div class="divider-display"><span class="line"></span><span class="label">APPLIANCES</span><span class="line"></span></div></td>
-          <td class="unit-price price" style="color:#94a3b8;">—</td>
-          <td class="qty-cell qty" style="color:#94a3b8;">—</td>
-          <td id="t46" class="line-total currency"></td>
-          <td class="print-hide" style="text-align:center;"></td>
-        </tr><tr>
-            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Sink Cutout</span></div><div class="item-note">per cutout</div></div></td>
-            <td class="unit-price price"><input id="p47" class="currency" value="20" oninput="priceChanged(47)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
+          </tr><tr>
+            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Laminated Feature Box</span></div><div class="item-note">per box</div></div></td>
+            <td class="unit-price price"><input id="p46" class="currency" value="16" oninput="priceChanged(46)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
+            <td class="qty-cell qty">
+              <input id="q46" value="" oninput="qtyChanged(46)" onblur="finaliseQtyInput(this)">
+            </td>
+            <td id="t46" class="line-total currency">$0.00</td>
+            <td class="print-hide" style="text-align:center;"></td>
+          </tr><tr>
+            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Metro Sink Setup</span></div><div class="item-note">per sink cabinet</div></div></td>
+            <td class="unit-price price"><input id="p47" class="currency" value="15" oninput="priceChanged(47)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
             <td class="qty-cell qty">
               <input id="q47" value="" oninput="qtyChanged(47)" onblur="finaliseQtyInput(this)">
             </td>
             <td id="t47" class="line-total currency">$0.00</td>
             <td class="print-hide" style="text-align:center;"></td>
           </tr><tr>
-            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Hotplate Cutout</span></div><div class="item-note">per cutout</div></div></td>
-            <td class="unit-price price"><input id="p48" class="currency" value="20" oninput="priceChanged(48)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
+            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Notch Lip Pull Handles On Linen Doors</span></div><div class="item-note">per item</div></div></td>
+            <td class="unit-price price"><input id="p48" class="currency" value="5" oninput="priceChanged(48)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
             <td class="qty-cell qty">
               <input id="q48" value="" oninput="qtyChanged(48)" onblur="finaliseQtyInput(this)">
             </td>
             <td id="t48" class="line-total currency">$0.00</td>
             <td class="print-hide" style="text-align:center;"></td>
-          </tr><tr>
-            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Fit And Silicone Sink/ Laundry Troughs</span></div><div class="item-note">per sink</div></div></td>
-            <td class="unit-price price"><input id="p49" class="currency" value="20" oninput="priceChanged(49)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
-            <td class="qty-cell qty">
-              <input id="q49" value="" oninput="qtyChanged(49)" onblur="finaliseQtyInput(this)">
-            </td>
-            <td id="t49" class="line-total currency">$0.00</td>
-            <td class="print-hide" style="text-align:center;"></td>
-          </tr><tr>
-            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Retractable Rangehood and Duct</span></div><div class="item-note">per rangehood</div></div></td>
-            <td class="unit-price price"><input id="p50" class="currency" value="25" oninput="priceChanged(50)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
+          </tr><tr class="divider-row">
+          <td class="item-name"><div class="divider-display"><span class="line"></span><span class="label">APPLIANCES</span><span class="line"></span></div></td>
+          <td class="unit-price price" style="color:#94a3b8;">—</td>
+          <td class="qty-cell qty" style="color:#94a3b8;">—</td>
+          <td id="t49" class="line-total currency"></td>
+          <td class="print-hide" style="text-align:center;"></td>
+        </tr><tr>
+            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Sink Cutout</span></div><div class="item-note">per cutout</div></div></td>
+            <td class="unit-price price"><input id="p50" class="currency" value="20" oninput="priceChanged(50)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
             <td class="qty-cell qty">
               <input id="q50" value="" oninput="qtyChanged(50)" onblur="finaliseQtyInput(this)">
             </td>
             <td id="t50" class="line-total currency">$0.00</td>
             <td class="print-hide" style="text-align:center;"></td>
           </tr><tr>
-            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Undermount Rangehood and Duct</span></div><div class="item-note">per rangehood</div></div></td>
-            <td class="unit-price price"><input id="p51" class="currency" value="40" oninput="priceChanged(51)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
+            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Hotplate Cutout</span></div><div class="item-note">per cutout</div></div></td>
+            <td class="unit-price price"><input id="p51" class="currency" value="20" oninput="priceChanged(51)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
             <td class="qty-cell qty">
               <input id="q51" value="" oninput="qtyChanged(51)" onblur="finaliseQtyInput(this)">
             </td>
             <td id="t51" class="line-total currency">$0.00</td>
             <td class="print-hide" style="text-align:center;"></td>
           </tr><tr>
-            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Rangehood Rear Ducting out eaves</span></div><div class="item-note">per rangehood</div></div></td>
-            <td class="unit-price price"><input id="p52" class="currency" value="50" oninput="priceChanged(52)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
+            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Fit And Silicone Sink/ Laundry Troughs</span></div><div class="item-note">per sink</div></div></td>
+            <td class="unit-price price"><input id="p52" class="currency" value="20" oninput="priceChanged(52)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
             <td class="qty-cell qty">
               <input id="q52" value="" oninput="qtyChanged(52)" onblur="finaliseQtyInput(this)">
             </td>
             <td id="t52" class="line-total currency">$0.00</td>
             <td class="print-hide" style="text-align:center;"></td>
-          </tr><tr class="divider-row">
-          <td class="item-name"><div class="divider-display"><span class="line"></span><span class="label">ALLOWANCES</span><span class="line"></span></div></td>
-          <td class="unit-price price" style="color:#94a3b8;">—</td>
-          <td class="qty-cell qty" style="color:#94a3b8;">—</td>
-          <td id="t53" class="line-total currency"></td>
-          <td class="print-hide" style="text-align:center;"></td>
-        </tr><tr>
-            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Protections And Stickers</span></div><div class="item-note">removal of stickers from benchtops, fitting of cardboard protectors and stickers to laminate tops. per job</div></div></td>
-            <td class="unit-price price"><input id="p54" class="currency" value="25" oninput="priceChanged(54)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
+          </tr><tr>
+            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Retractable Rangehood and Duct</span></div><div class="item-note">per rangehood</div></div></td>
+            <td class="unit-price price"><input id="p53" class="currency" value="25" oninput="priceChanged(53)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
+            <td class="qty-cell qty">
+              <input id="q53" value="" oninput="qtyChanged(53)" onblur="finaliseQtyInput(this)">
+            </td>
+            <td id="t53" class="line-total currency">$0.00</td>
+            <td class="print-hide" style="text-align:center;"></td>
+          </tr><tr>
+            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Undermount Rangehood and Duct</span></div><div class="item-note">per rangehood</div></div></td>
+            <td class="unit-price price"><input id="p54" class="currency" value="40" oninput="priceChanged(54)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
             <td class="qty-cell qty">
               <input id="q54" value="" oninput="qtyChanged(54)" onblur="finaliseQtyInput(this)">
             </td>
             <td id="t54" class="line-total currency">$0.00</td>
             <td class="print-hide" style="text-align:center;"></td>
           </tr><tr>
-            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Photos of install</span></div><div class="item-note">clean neat photos of all works uploaded to monday app with filled out maintenance sheet. per job</div></div></td>
-            <td class="unit-price price"><input id="p55" class="currency" value="10" oninput="priceChanged(55)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
+            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Rangehood Rear Ducting out eaves</span></div><div class="item-note">per rangehood</div></div></td>
+            <td class="unit-price price"><input id="p55" class="currency" value="50" oninput="priceChanged(55)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
             <td class="qty-cell qty">
               <input id="q55" value="" oninput="qtyChanged(55)" onblur="finaliseQtyInput(this)">
             </td>
             <td id="t55" class="line-total currency">$0.00</td>
             <td class="print-hide" style="text-align:center;"></td>
-          </tr><tr>
-            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Travel</span></div><div class="item-note">per km</div></div></td>
-            <td class="unit-price price"><input id="p56" class="currency" value="0.9" oninput="priceChanged(56)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
-            <td class="qty-cell qty">
-              <input id="q56" value="" oninput="qtyChanged(56)" onblur="finaliseQtyInput(this)">
-            </td>
-            <td id="t56" class="line-total currency">$0.00</td>
-            <td class="print-hide" style="text-align:center;"></td>
-          </tr><tr>
-            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Accommadation</span></div><div class="item-note">includes meal allowance. per night</div></div></td>
-            <td class="unit-price price"><input id="p57" class="currency" value="300" oninput="priceChanged(57)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
+          </tr><tr class="divider-row">
+          <td class="item-name"><div class="divider-display"><span class="line"></span><span class="label">ALLOWANCES</span><span class="line"></span></div></td>
+          <td class="unit-price price" style="color:#94a3b8;">—</td>
+          <td class="qty-cell qty" style="color:#94a3b8;">—</td>
+          <td id="t56" class="line-total currency"></td>
+          <td class="print-hide" style="text-align:center;"></td>
+        </tr><tr>
+            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Protections And Stickers</span></div><div class="item-note">removal of stickers from benchtops, fitting of cardboard protectors and stickers to laminate tops. per job</div></div></td>
+            <td class="unit-price price"><input id="p57" class="currency" value="25" oninput="priceChanged(57)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
             <td class="qty-cell qty">
               <input id="q57" value="" oninput="qtyChanged(57)" onblur="finaliseQtyInput(this)">
             </td>
             <td id="t57" class="line-total currency">$0.00</td>
             <td class="print-hide" style="text-align:center;"></td>
           </tr><tr>
-            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Two Story House</span></div><div class="item-note">per day</div></div></td>
-            <td class="unit-price price"><input id="p58" class="currency" value="55" oninput="priceChanged(58)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
+            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Photos of install</span></div><div class="item-note">clean neat photos of all works uploaded to monday app with filled out maintenance sheet. per job</div></div></td>
+            <td class="unit-price price"><input id="p58" class="currency" value="10" oninput="priceChanged(58)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
             <td class="qty-cell qty">
               <input id="q58" value="" oninput="qtyChanged(58)" onblur="finaliseQtyInput(this)">
             </td>
             <td id="t58" class="line-total currency">$0.00</td>
             <td class="print-hide" style="text-align:center;"></td>
           </tr><tr>
-            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Private Job </span></div><div class="item-note">lived in, painted and tiled</div></div></td>
-            <td class="unit-price price"><input id="p59" class="currency" value="200" oninput="priceChanged(59)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
+            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Travel</span></div><div class="item-note">per km</div></div></td>
+            <td class="unit-price price"><input id="p59" class="currency" value="0.9" oninput="priceChanged(59)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
             <td class="qty-cell qty">
               <input id="q59" value="" oninput="qtyChanged(59)" onblur="finaliseQtyInput(this)">
             </td>
             <td id="t59" class="line-total currency">$0.00</td>
             <td class="print-hide" style="text-align:center;"></td>
           </tr><tr>
-            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Call Back Charge</span></div></div></td>
-            <td class="unit-price price"><input id="p60" class="currency" value="150" oninput="priceChanged(60)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
+            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Accommadation</span></div><div class="item-note">includes meal allowance. per night</div></div></td>
+            <td class="unit-price price"><input id="p60" class="currency" value="300" oninput="priceChanged(60)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
             <td class="qty-cell qty">
               <input id="q60" value="" oninput="qtyChanged(60)" onblur="finaliseQtyInput(this)">
             </td>
             <td id="t60" class="line-total currency">$0.00</td>
             <td class="print-hide" style="text-align:center;"></td>
           </tr><tr>
-            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Hourly Rate</span><button type="button" class="btn extra-work-toggle" onclick="toggleExtraWorkDetails(event)">Extra Work ▼</button></div></div></td>
-            <td class="unit-price price"><input id="p61" class="currency" value="70" oninput="priceChanged(61)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
-            <td class="qty-cell qty" style="text-align:center;color:#64748b;">Auto</td>
+            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Two Story House</span></div><div class="item-note">per day</div></div></td>
+            <td class="unit-price price"><input id="p61" class="currency" value="55" oninput="priceChanged(61)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
+            <td class="qty-cell qty">
+              <input id="q61" value="" oninput="qtyChanged(61)" onblur="finaliseQtyInput(this)">
+            </td>
             <td id="t61" class="line-total currency">$0.00</td>
+            <td class="print-hide" style="text-align:center;"></td>
+          </tr><tr>
+            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Private Job </span></div><div class="item-note">lived in, painted and tiled</div></div></td>
+            <td class="unit-price price"><input id="p62" class="currency" value="200" oninput="priceChanged(62)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
+            <td class="qty-cell qty">
+              <input id="q62" value="" oninput="qtyChanged(62)" onblur="finaliseQtyInput(this)">
+            </td>
+            <td id="t62" class="line-total currency">$0.00</td>
+            <td class="print-hide" style="text-align:center;"></td>
+          </tr><tr>
+            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Call Back Charge</span></div></div></td>
+            <td class="unit-price price"><input id="p63" class="currency" value="150" oninput="priceChanged(63)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
+            <td class="qty-cell qty">
+              <input id="q63" value="" oninput="qtyChanged(63)" onblur="finaliseQtyInput(this)">
+            </td>
+            <td id="t63" class="line-total currency">$0.00</td>
+            <td class="print-hide" style="text-align:center;"></td>
+          </tr><tr>
+            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Hourly Rate</span><button type="button" class="btn extra-work-toggle" onclick="toggleExtraWorkDetails(event)">Extra Work ▼</button></div></div></td>
+            <td class="unit-price price"><input id="p64" class="currency" value="70" oninput="priceChanged(64)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
+            <td class="qty-cell qty" style="text-align:center;color:#64748b;">Auto</td>
+            <td id="t64" class="line-total currency">$0.00</td>
             <td class="print-hide" style="text-align:center;"></td>
           </tr></tbody>
 
@@ -1241,6 +1346,24 @@ const DEFAULT_TEMPLATE =   [
       "per panel"
     ],
     [
+      "Bench Panels",
+      10,
+      "",
+      {
+        "pricingType": "standard",
+        "itemLabel": "Shelf",
+        "baseLength": 1200,
+        "basePrice": 25,
+        "extraRate": 12,
+        "defaultAmount": 1
+      },
+      {
+        "rowType": "item",
+        "id": "row_ms5u1ha5_kf9miv_20"
+      },
+      "each"
+    ],
+    [
       "Dishwasher Panel",
       15,
       "",
@@ -1350,7 +1473,7 @@ const DEFAULT_TEMPLATE =   [
     ],
     [
       "Scribed Top Fillers ",
-      26,
+      20,
       "",
       {
         "pricingType": "standard",
@@ -1421,8 +1544,8 @@ const DEFAULT_TEMPLATE =   [
       "per room"
     ],
     [
-      "Scribe Kicker / Panels To Tiled Laundry",
-      35,
+      "Scribe Kicker / Panels To Tiled Laundry bench cabinets",
+      30,
       "",
       {
         "pricingType": "standard",
@@ -1435,6 +1558,24 @@ const DEFAULT_TEMPLATE =   [
       {
         "rowType": "item",
         "id": "row_mrlukxfm_d1mcpk_30"
+      },
+      "per room"
+    ],
+    [
+      "Scribe Kicker / Panels To Tiled Laundry Linens",
+      50,
+      "",
+      {
+        "pricingType": "standard",
+        "itemLabel": "Shelf",
+        "baseLength": 1200,
+        "basePrice": 25,
+        "extraRate": 12,
+        "defaultAmount": 1
+      },
+      {
+        "rowType": "item",
+        "id": "row_ms5u1ha6_z5tyj7_32"
       },
       "per room"
     ],
@@ -1483,7 +1624,7 @@ const DEFAULT_TEMPLATE =   [
         "itemLabel": "Shelf",
         "baseLength": 1200,
         "basePrice": 25,
-        "extraRate": 12,
+        "extraRate": 15,
         "defaultAmount": 1
       },
       {
@@ -1707,6 +1848,24 @@ const DEFAULT_TEMPLATE =   [
         "id": "row_mrlukxfm_dug84a_45"
       },
       "per sink cabinet"
+    ],
+    [
+      "Notch Lip Pull Handles On Linen Doors",
+      5,
+      "",
+      {
+        "pricingType": "standard",
+        "itemLabel": "Shelf",
+        "baseLength": 1200,
+        "basePrice": 25,
+        "extraRate": 12,
+        "defaultAmount": 1
+      },
+      {
+        "rowType": "item",
+        "id": "row_ms5u1ha6_lezoj2_48"
+      },
+      "per item"
     ],
     [
       "APPLIANCES",
@@ -1999,9 +2158,9 @@ const DEFAULT_TEMPLATE =   [
   ];
 
 const APPLICATION_VERSION = '10.0';
-let TEMPLATE_VERSION = 6;
-let TEMPLATE_PUBLISHED_DATE = '19 Jul 2026';
-let TEMPLATE_PUBLISHED_TIME = '11:27';
+let TEMPLATE_VERSION = 7;
+let TEMPLATE_PUBLISHED_DATE = '29 Jul 2026';
+let TEMPLATE_PUBLISHED_TIME = '18:08';
 const STORAGE_JOBS_KEY = 'jc_jobs';
 
 // MASTER_TEMPLATE is the single estimator model used by render/calc/pdf.
