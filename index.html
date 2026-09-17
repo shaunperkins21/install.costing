@@ -153,6 +153,7 @@ input:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 
 
 .print-only { display: none; }
 .print-row { display: none; }
+.jsa-print { display:none; }
 
 .settings-dialog{position:relative;max-width:820px;margin:60px auto;padding:0;border-radius:var(--radius);background:var(--panel);color:var(--text);box-shadow:0 12px 30px rgba(15,23,42,0.06);border:1px solid var(--border);overflow:hidden}
 .settings-dialog h3{margin:0 0 12px 0;color:var(--text)}
@@ -165,6 +166,7 @@ input:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 
 
 @media print {
   @page { size: A4 portrait; margin: 24mm; }
+  @page jsa { size: A4 landscape; margin: 12mm; }
   html, body { background: white !important; color: black !important; }
   body { margin: 0; padding: 0; }
   .topbar, .sidebar, .toolbar-actions, .search, .btn, .job-controls, .top-fields, .card, .sidebar-footer, .maintenance-handle, .threshold-toggle-btn { display: none !important; }
@@ -218,6 +220,25 @@ input:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 
   .print-extra-work-row.extra-work-total td { border-top: 1px solid #d1d5db !important; padding-top: 6px !important; font-weight: 700 !important; }
   .print-extra-work-row td:nth-child(4) { text-align: right !important; }
   .print-extra-work-row td:nth-child(2), .print-extra-work-row td:nth-child(3) { color: transparent !important; }
+  body.printing-jsa .main > :not(#jsaPrint) { display:none !important; }
+  body.printing-jsa #jsaPrint { display:block !important; }
+  #jsaPrint { page:jsa; font-family:"Segoe UI", Arial, sans-serif; color:#000; font-size:10px; }
+  #jsaPrint .jsa-company { text-align:center; padding-bottom:8px; margin-bottom:10px; line-height:1.35; }
+  #jsaPrint .jsa-company-name { font-size:15px; font-weight:800; }
+  #jsaPrint .jsa-title { text-align:center; font-size:16px; font-weight:800; margin:10px 0 14px; }
+  #jsaPrint .jsa-details { display:grid; grid-template-columns:1fr 1fr; column-gap:32px; margin-bottom:10px; }
+  #jsaPrint .jsa-details-column { display:flex; flex-direction:column; gap:4px; }
+  #jsaPrint .jsa-details-column div { min-height:19px; padding:2px 0; }
+  #jsaPrint .jsa-label { font-weight:700; display:inline-block; min-width:88px; }
+  #jsaPrint .jsa-activity { margin:8px 0 12px; font-weight:700; }
+  #jsaPrint table { width:100% !important; border-collapse:collapse !important; table-layout:fixed !important; border:1.5pt solid #475569 !important; border-radius:0 !important; background:#fff !important; }
+  #jsaPrint th, #jsaPrint td { display:table-cell !important; border:0.6pt solid #94a3b8 !important; padding:7px 8px !important; vertical-align:middle !important; color:#000 !important; font-size:9.5px !important; line-height:1.35 !important; text-align:left !important; overflow-wrap:break-word; }
+  #jsaPrint th { background:#f1f5f9 !important; font-weight:800 !important; position:static !important; text-align:center !important; vertical-align:top !important; }
+  #jsaPrint th:nth-child(1), #jsaPrint td:nth-child(1) { width:25% !important; }
+  #jsaPrint th:nth-child(2), #jsaPrint td:nth-child(2) { width:25% !important; }
+  #jsaPrint th:nth-child(3), #jsaPrint td:nth-child(3) { width:30% !important; }
+  #jsaPrint th:nth-child(4), #jsaPrint td:nth-child(4) { width:20% !important; }
+  #jsaPrint .jsa-guidance { font-size:8.5px; font-weight:400; text-transform:none; display:block; margin-top:4px; text-align:left; line-height:1.3; }
 }
 </style>
 </head>
@@ -228,6 +249,7 @@ input:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 
   <div class="brand">INSTALL COSTING</div>
   <div class="toolbar-actions">
     <button class="btn" onclick="openSettings()">⚙️ Menu</button>
+    <button class="btn" onclick="openBusinessInformation()">Business Information</button>
   </div>
 </div>
 
@@ -240,44 +262,16 @@ input:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 
   <div class="actions" style="margin-bottom:18px">
     <input id="searchJobs" class="search" placeholder="Search Jobs" oninput="renderJobs()">
   </div>
-  <div id="jobList"><div class="job">
-      <div class="job-number">Job No: 61753</div>
-      <div class="job-address">1-8 Deuter Rd, Burton (Yard Address) </div>
+  <div id="jobList"><div class="job active">
+      <div class="job-number">Job 1</div>
+      <div class="job-address"></div>
       <div class="job-controls">
         <button class="btn" onclick="duplicateJobHandler(event,0)">Copy</button>
         <button class="btn" onclick="deleteJobHandler(event,0)">Delete</button>
       </div>
-    </div><div class="job">
-      <div class="job-number">Job No: 61333</div>
-      <div class="job-address">Lot 874 Vino Street, Angle Vale </div>
-      <div class="job-controls">
-        <button class="btn" onclick="duplicateJobHandler(event,1)">Copy</button>
-        <button class="btn" onclick="deleteJobHandler(event,1)">Delete</button>
-      </div>
-    </div><div class="job">
-      <div class="job-number">Job No: 53880</div>
-      <div class="job-address">LOT 20 CROSS ST, ANGASTON  </div>
-      <div class="job-controls">
-        <button class="btn" onclick="duplicateJobHandler(event,2)">Copy</button>
-        <button class="btn" onclick="deleteJobHandler(event,2)">Delete</button>
-      </div>
-    </div><div class="job">
-      <div class="job-number">Job No: 61867</div>
-      <div class="job-address">LOT 13 (NO.9) CURB STREET,SADDLEWORTH</div>
-      <div class="job-controls">
-        <button class="btn" onclick="duplicateJobHandler(event,3)">Copy</button>
-        <button class="btn" onclick="deleteJobHandler(event,3)">Delete</button>
-      </div>
-    </div><div class="job active">
-      <div class="job-number">Job 5</div>
-      <div class="job-address"></div>
-      <div class="job-controls">
-        <button class="btn" onclick="duplicateJobHandler(event,4)">Copy</button>
-        <button class="btn" onclick="deleteJobHandler(event,4)">Delete</button>
-      </div>
     </div></div>
     <div class="sidebar-footer" style="margin-top:16px;padding-top:12px;border-top:1px solid rgba(31,41,55,0.12);display:flex;flex-direction:column;gap:6px">
-    <div id="footerJobs" class="muted" style="color:#000000">Jobs: 5</div>
+    <div id="footerJobs" class="muted" style="color:#000000">Jobs: 1</div>
   </div>
 </div>
 
@@ -291,8 +285,12 @@ input:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 
         <div id="printTemplateDate">2026-07-16</div>
       </div>
       <div class="print-meta">
+        <div><span class="print-label">Business:</span> <span id="printProfileName" class="meta-value"></span></div>
+        <div><span class="print-label">Phone:</span> <span id="printProfilePhone" class="meta-value"></span></div>
         <div><span class="print-label">Job Number:</span> <span id="printJobNumber" class="meta-value">12345</span></div>
+        <div><span class="print-label">Date of Install:</span> <span id="printInstallDate" class="meta-value"></span></div>
         <div><span class="print-label">Address:</span> <span id="printAddress" class="meta-value address-value">123 smith street adelaide</span></div>
+        <div><span class="print-label">Builder:</span> <span id="printBuilder" class="meta-value"></span></div>
       </div>
     </div>
   </div>
@@ -306,8 +304,16 @@ input:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 
           <input id="jobNumber" placeholder="Job Number" oninput="saveMeta()">
         </div>
         <div>
+          <label for="installDate" style="display:block;margin-bottom:6px;font-size:13px;color:#000000;">Date of Install</label>
+          <input id="installDate" type="date" oninput="saveMeta()" onchange="saveMeta()">
+        </div>
+        <div>
           <label for="jobAddress" style="display:block;margin-bottom:6px;font-size:13px;color:#000000;">Address</label>
           <input id="jobAddress" placeholder="Address" oninput="saveMeta()">
+        </div>
+        <div>
+          <label for="jobBuilder" style="display:block;margin-bottom:6px;font-size:13px;color:#000000;">Builder</label>
+          <input id="jobBuilder" placeholder="Builder" oninput="saveMeta()">
         </div>
       </div>
       <textarea id="jobNotes" class="notes hidden-job-notes" rows="5" oninput="saveMeta()"></textarea>
@@ -321,6 +327,7 @@ input:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 
         </div>
         <div style="display:flex;align-items:center;gap:12px">
           <button class="btn" onclick="printJob()">📄 Export PDF</button>
+          <button class="btn" onclick="printJsa()">JSA / Safety Analysis</button>
         </div>
       </div>
       <div id="autosaveStatus" class="muted" style="color:var(--muted)">● Saved</div>
@@ -374,7 +381,7 @@ input:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 
             <td id="t1" class="line-total currency">$0.00</td>
             <td class="print-hide" style="text-align:center;"></td>
           </tr><tr>
-            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Under bench Oven (UBM)</span></div><div class="item-note">per cabinet</div></div></td>
+            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Under bench Oven</span></div><div class="item-note">per cabinet</div></div></td>
             <td class="unit-price price"><input id="p2" class="currency" value="16" oninput="priceChanged(2)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
             <td class="qty-cell qty">
               <input id="q2" value="" oninput="qtyChanged(2)" onblur="finaliseQtyInput(this)">
@@ -628,65 +635,12 @@ input:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 
           <td id="t34" class="line-total currency"></td>
           <td class="print-hide" style="text-align:center;"></td>
         </tr><tr>
-            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Walk In Robe Shelf</span><button type="button" class="threshold-toggle-btn" onclick="toggleThresholdDetails(event,35)">Hide Breakdown ▲</button></div><div class="item-note">per length</div></div></td>
+            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Walk In Robe Shelf</span><button type="button" class="threshold-toggle-btn" onclick="toggleThresholdDetails(event,35)">Breakdown ▼</button></div><div class="item-note">per length</div></div></td>
             <td class="unit-price price" style="color:#64748b;">—</td>
             <td class="qty-cell qty" style="color:#64748b;">—</td>
             <td id="t35" class="line-total currency">$0.00</td>
             <td class="print-hide" style="text-align:center;"></td>
-          </tr><tr class="threshold-details-row print-hide">
-        <td colspan="5">
-          <div class="threshold-details">
-            <div class="threshold-details-label">Details</div>
-            <div class="threshold-table-wrap">
-              <table class="threshold-details-table">
-                <thead>
-                  <tr>
-                    <th>Shelf</th>
-                    <th>Length (mm)</th>
-                    <th>Amount</th>
-                    <th>Price</th>
-                    <th>Delete</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  
-                    <tr>
-                      <td>Shelf 1</td>
-                      <td>
-                        <input id="threshold-length-35-0" type="number" inputmode="numeric" placeholder="Length (mm)" value="" oninput="thresholdLengthChanged(35, 0, this.value)">
-                      </td>
-                      <td>
-                        <select id="threshold-amount-35-0" onchange="thresholdAmountChanged(35, 0, this.value)" style="width:74px;padding:7px 10px;border-radius:8px;border:1px solid #d1d5db;background:#fff;color:#0f172a;font-size:13px;line-height:1.2;">
-                          <option value="1" selected="">1x</option><option value="2">2x</option><option value="3">3x</option><option value="4">4x</option><option value="5">5x</option>
-                        </select>
-                      </td>
-                      <td id="threshold-price-35-0" class="currency threshold-price-cell">$0.00</td>
-                      <td><button type="button" class="btn" onclick="deleteThresholdLength(event, 35, 0)">Delete</button></td>
-                    </tr>
-                  
-                </tbody>
-              </table>
-            </div>
-            <div class="threshold-action-row">
-              <button type="button" class="btn primary" onclick="addThresholdLength(event, 35)">+ Add Shelf</button>
-            </div>
-            <div class="threshold-summary">
-              <div class="summary-box">
-                <div class="label">Shelfs</div>
-                <div id="threshold-count-35" class="value">1</div>
-              </div>
-              <div class="summary-box">
-                <div class="label">Total Length</div>
-                <div id="threshold-total-length-35" class="value">0</div>
-              </div>
-              <div class="summary-box">
-                <div class="label">Total Price</div>
-                <div id="threshold-total-price-35" class="value">$0.00</div>
-              </div>
-            </div>
-          </div>
-        </td>
-      </tr><tr>
+          </tr><tr>
             <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Cleated Shelf</span><button type="button" class="threshold-toggle-btn" onclick="toggleThresholdDetails(event,36)">Breakdown ▼</button></div><div class="item-note">per length</div></div></td>
             <td class="unit-price price" style="color:#64748b;">—</td>
             <td class="qty-cell qty" style="color:#64748b;">—</td>
@@ -927,6 +881,45 @@ input:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 
 
   <div id="printNotes" class="print-only print-notes" style="display:none;"></div>
 
+  <section id="jsaPrint" class="jsa-print" aria-label="Job Safety Analysis">
+    <div class="jsa-company">
+      <div class="jsa-company-name">SUPREME KITCHENS (S.A.) PTY LTD</div>
+      <div>ABN 68 007 711 622</div>
+      <div>29 RESEARCH ROAD, POORAKA SA 5095</div>
+      <div>Telephone: 08 8162 055</div>
+    </div>
+    <div class="jsa-title">JOB SAFETY ANALYSIS (JSA)</div>
+    <div class="jsa-details">
+      <div class="jsa-details-column">
+        <div><span class="jsa-label">Company Name:</span> Supreme Kitchens</div>
+        <div><span class="jsa-label">JSA No:</span> - Job No: <span id="jsaJobNumber"></span></div>
+        <div><span class="jsa-label">Date:</span> - <span id="jsaDate"></span></div>
+        <div><span class="jsa-label">Site Name:</span> - <span id="jsaAddress"></span></div>
+      </div>
+      <div class="jsa-details-column">
+        <div><span class="jsa-label">Permit to work req'd:</span> no</div>
+        <div><span class="jsa-label">Phone:</span> <span id="jsaPhone"></span></div>
+        <div><span class="jsa-label">Contractor:</span> <span id="jsaContractor"></span></div>
+        <div><span class="jsa-label">Activity:</span> fit cabinets</div>
+      </div>
+    </div>
+    <table>
+      <thead><tr>
+        <th>ACTIVITY<span class="jsa-guidance">List the tasks required to perform the activity in the sequence they are carried out.</span></th>
+        <th>HAZARDS<span class="jsa-guidance">Against each task list the hazards that cause injury when the task is performed.</span></th>
+        <th>RISK CONTROL MEASURES<span class="jsa-guidance">List the control measures required to eliminate or minimise the risk of injury arising from the identified hazard.</span></th>
+        <th>WHO IS RESPONSIBLE?<span class="jsa-guidance">Write the name of the person responsible (site supervisor or above) to implement the control measure identified.</span></th>
+      </tr></thead>
+      <tbody>
+        <tr><td>Unload &amp; set up tools</td><td>Lifting, carrying &amp; tripping</td><td>Use Correct Lifting procedures and ensure are clear of all cables and tools.</td><td class="jsa-responsible"></td></tr>
+        <tr><td>Run out power leads for power tools</td><td>Electric shock &amp; tripping</td><td>Check for faults in cables, check tagging and testing dates and ensure cables clear to prevent trips.</td><td class="jsa-responsible"></td></tr>
+        <tr><td>Cutting Panels</td><td>Inhaling dust, noise, lacerations and electric shock</td><td>Wear appropriate PPE, check guards on tools, check cables on tools and tagging and testing dates.</td><td class="jsa-responsible"></td></tr>
+        <tr><td>Moving cupboards</td><td>Lifting and trapping body parts</td><td>Use correct lifting procedures and use trolleys if required.</td><td class="jsa-responsible"></td></tr>
+        <tr><td>Working on ladders</td><td>Falls</td><td>Check equipment in good condition. Follow safety procedures for use of ladder.</td><td class="jsa-responsible"></td></tr>
+      </tbody>
+    </table>
+  </section>
+
 </div>
 </div>
 
@@ -939,6 +932,7 @@ input:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 
         <h3 style="margin:0 0 12px 0">Menu</h3>
         <div style="display:flex;flex-direction:column;gap:8px">
           <button class="btn" onclick="setSettingsPage('menu')">Menu</button>
+          <button class="btn" onclick="setSettingsPage('profile')">User / Business</button>
           <button class="btn" onclick="setSettingsPage('security')">Security</button>
           <button class="btn" onclick="setSettingsPage('about')">About</button>
         </div>
@@ -1022,7 +1016,7 @@ const DEFAULT_TEMPLATE =   [
       "per door"
     ],
     [
-      "Under bench Oven (UBM)",
+      "Under bench Oven",
       16,
       "",
       {
@@ -2158,10 +2152,37 @@ const DEFAULT_TEMPLATE =   [
   ];
 
 const APPLICATION_VERSION = '10.0';
-let TEMPLATE_VERSION = 7;
-let TEMPLATE_PUBLISHED_DATE = '29 Jul 2026';
-let TEMPLATE_PUBLISHED_TIME = '18:08';
+let TEMPLATE_VERSION = 8;
+let TEMPLATE_PUBLISHED_DATE = '18 Sep 2026';
+let TEMPLATE_PUBLISHED_TIME = '07:57';
 const STORAGE_JOBS_KEY = 'jc_jobs';
+const STORAGE_USER_PROFILE_KEY = 'jc_user_profile';
+const DEFAULT_USER_PROFILE = {"name":"shaun perkins","phone":"0432780234"};
+
+function normalizeUserProfile(profile){
+  return {
+    name: String((profile && profile.name) || ''),
+    phone: String((profile && profile.phone) || '')
+  };
+}
+
+let USER_PROFILE = normalizeUserProfile(DEFAULT_USER_PROFILE);
+let userProfileExists = Boolean(USER_PROFILE.name || USER_PROFILE.phone);
+try{
+  const storedProfile = localStorage.getItem(STORAGE_USER_PROFILE_KEY);
+  if(storedProfile !== null){
+    USER_PROFILE = normalizeUserProfile(JSON.parse(storedProfile));
+    userProfileExists = true;
+  } else if(userProfileExists){
+    localStorage.setItem(STORAGE_USER_PROFILE_KEY, JSON.stringify(USER_PROFILE));
+  }
+}catch(e){}
+
+function saveUserProfile(){
+  USER_PROFILE = normalizeUserProfile(USER_PROFILE);
+  localStorage.setItem(STORAGE_USER_PROFILE_KEY, JSON.stringify(USER_PROFILE));
+  userProfileExists = true;
+}
 
 // MASTER_TEMPLATE is the single estimator model used by render/calc/pdf.
 let items = normalizeTemplateItems(DEFAULT_TEMPLATE);
@@ -2357,7 +2378,9 @@ function setJobMetaJson(jobIndex, metaKey, value){
 function createEmptyJob(){
   return {
     jobNumber:"",
+    installDate:"",
     address:"",
+    builder:"",
     quantities:{},
     grandTotal:'0.00'
   };
@@ -2416,7 +2439,9 @@ function migrateJobToTemplateModel(job){
   if(!job || typeof job !== 'object') return next;
 
   next.jobNumber = String(job.jobNumber || '');
+  next.installDate = String(job.installDate || '');
   next.address = String(job.address || '');
+  next.builder = String(job.builder || '');
   next.grandTotal = typeof job.grandTotal === 'undefined' ? '0.00' : String(job.grandTotal);
 
   const initialNotes = String(job.notes || job.jobNotes || '');
@@ -2686,6 +2711,10 @@ else {
 }
 
 closeSettings();
+if(!userProfileExists){
+  openSettings();
+  setSettingsPage('profile');
+}
 maintenanceActive = false;
 updateMaintenanceUi();
 renderTable();
@@ -2811,7 +2840,9 @@ function saveMeta(){
   if(!j) return;
 
   j.jobNumber = jobNumber.value;
+  j.installDate = installDate.value;
   j.address = jobAddress.value;
+  j.builder = jobBuilder.value;
   const visibleNotes = document.getElementById('estimatorNotes');
   const notesValue = visibleNotes ? visibleNotes.value : jobNotes.value;
   setJobNotes(current, notesValue);
@@ -2830,7 +2861,9 @@ function loadJob(i){
   let j = jobs[i];
 
   jobNumber.value = j.jobNumber || "";
+  installDate.value = j.installDate || "";
   jobAddress.value = j.address || "";
+  jobBuilder.value = j.builder || "";
   jobNotes.value = getJobNotes(i) || "";
   const visibleNotes = document.getElementById('estimatorNotes');
   if(visibleNotes){
@@ -2879,6 +2912,26 @@ function setSettingsPage(page){
     return;
   }
 
+  if(page === 'profile'){
+    c.innerHTML = `
+      <h3 style="margin-top:0">User / Business Information</h3>
+      <div style="display:flex;flex-direction:column;gap:14px;max-width:460px;">
+        <div>
+          <label for="profileName" style="display:block;margin-bottom:6px;font-size:14px;font-weight:700;color:#334155;">Name / Business</label>
+          <input id="profileName" class="search" value="${escapeHtml(USER_PROFILE.name)}" placeholder="Name / Business Name" style="width:100%;padding:12px 14px;border-radius:12px;border:1px solid #d1d5db;background:#ffffff;color:#0f172a;box-sizing:border-box;">
+        </div>
+        <div>
+          <label for="profilePhone" style="display:block;margin-bottom:6px;font-size:14px;font-weight:700;color:#334155;">Phone</label>
+          <input id="profilePhone" class="search" value="${escapeHtml(USER_PROFILE.phone)}" placeholder="Phone Number" type="tel" style="width:100%;padding:12px 14px;border-radius:12px;border:1px solid #d1d5db;background:#ffffff;color:#0f172a;box-sizing:border-box;">
+        </div>
+        <div style="display:flex;justify-content:flex-end;">
+          <button class="btn primary" onclick="saveUserProfileFromSettings()">Save Profile</button>
+        </div>
+      </div>
+    `;
+    return;
+  }
+
   if(page === 'security'){
     if(!securityUnlocked){
       const p = prompt('Enter administrator password to open Security');
@@ -2917,6 +2970,18 @@ function setSettingsPage(page){
     `;
     return;
   }
+}
+
+function saveUserProfileFromSettings(){
+  const nameInput = document.getElementById('profileName');
+  const phoneInput = document.getElementById('profilePhone');
+  USER_PROFILE = normalizeUserProfile({
+    name: nameInput ? nameInput.value.trim() : '',
+    phone: phoneInput ? phoneInput.value.trim() : ''
+  });
+  saveUserProfile();
+  alert('Profile saved.');
+  setSettingsPage('profile');
 }
 
 function formatAboutDate(){
@@ -3000,9 +3065,19 @@ function renderJobs(){
   list.innerHTML = '';
 
   const filter = (document.getElementById('searchJobs')||{value:''}).value.toLowerCase().trim();
+  const orderedJobs = jobs.map((job, index)=>({ job, index })).sort((left, right)=>{
+    const leftDate = String(left.job.installDate || '');
+    const rightDate = String(right.job.installDate || '');
+    const leftHasDate = /^\d{4}-\d{2}-\d{2}$/.test(leftDate);
+    const rightHasDate = /^\d{4}-\d{2}-\d{2}$/.test(rightDate);
+    if(leftHasDate && rightHasDate) return rightDate.localeCompare(leftDate) || left.index - right.index;
+    if(leftHasDate) return -1;
+    if(rightHasDate) return 1;
+    return left.index - right.index;
+  });
 
-  jobs.forEach((j,i)=>{
-    const combined = ((j.jobNumber||'') + ' ' + (j.address||'')).toLowerCase();
+  orderedJobs.forEach(({ job:j, index:i })=>{
+    const combined = ((j.jobNumber||'') + ' ' + (j.address||'') + ' ' + (j.builder||'')).toLowerCase();
     if(filter && !combined.includes(filter)) return;
 
     const div = document.createElement('div');
@@ -3727,6 +3802,9 @@ function formatTemplateBackupTimestamp(dateObj){
 
 function buildHtmlWithUpdatedDefaultTemplate(templateArray){
   const previousItems = JSON.parse(JSON.stringify(items));
+  const previousJobs = jobs;
+  const previousCurrent = current;
+  const previousStoredJobs = localStorage.getItem(STORAGE_JOBS_KEY);
   const previousMaintenanceActive = maintenanceActive;
   const overlay = document.getElementById('settingsOverlay');
   const lockModal = document.getElementById('lockModal');
@@ -3736,6 +3814,8 @@ function buildHtmlWithUpdatedDefaultTemplate(templateArray){
 
   try{
     items = normalizeTemplateItems(JSON.parse(JSON.stringify(templateArray || [])));
+    jobs = [createEmptyJob()];
+    current = 0;
     maintenanceActive = false;
     if(overlay) overlay.style.display = 'none';
     if(lockModal) lockModal.style.display = 'none';
@@ -3744,6 +3824,10 @@ function buildHtmlWithUpdatedDefaultTemplate(templateArray){
     fullHtml = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
   } finally {
     items = previousItems;
+    jobs = previousJobs;
+    current = previousCurrent;
+    if(previousStoredJobs === null) localStorage.removeItem(STORAGE_JOBS_KEY);
+    else localStorage.setItem(STORAGE_JOBS_KEY, previousStoredJobs);
     maintenanceActive = previousMaintenanceActive;
     if(overlay) overlay.style.display = previousOverlayDisplay;
     if(lockModal) lockModal.style.display = previousLockModalDisplay;
@@ -3757,8 +3841,11 @@ function buildHtmlWithUpdatedDefaultTemplate(templateArray){
     .map(line => '  ' + line)
     .join('\n');
   const replacement = `const DEFAULT_TEMPLATE = ${templateJson};`;
-  const updatedHtml = fullHtml.replace(/const DEFAULT_TEMPLATE\s*=\s*\[[\s\S]*?\];/, replacement);
-  if(updatedHtml === fullHtml){
+  const profileJson = JSON.stringify(normalizeUserProfile(USER_PROFILE));
+  const updatedHtml = fullHtml
+    .replace(/const DEFAULT_TEMPLATE\s*=\s*\[[\s\S]*?\];/, replacement)
+    .replace(/const DEFAULT_USER_PROFILE\s*=\s*\{[^}]*\};/, `const DEFAULT_USER_PROFILE = ${profileJson};`);
+  if(updatedHtml === fullHtml || !updatedHtml.includes(profileJson)){
     throw new Error('Unable to update embedded DEFAULT_TEMPLATE in exported HTML.');
   }
   return updatedHtml;
@@ -3960,6 +4047,12 @@ function openSettings(){
   setSettingsPage('menu');
 }
 
+function openBusinessInformation(){
+  const overlay = document.getElementById('settingsOverlay');
+  if(overlay) overlay.style.display = 'block';
+  setSettingsPage('profile');
+}
+
 function closeSettings(){
   const overlay = document.getElementById('settingsOverlay');
   if(overlay) overlay.style.display = 'none';
@@ -3991,7 +4084,11 @@ function preparePrint(){
   document.title = title;
 
   const headerJob = document.getElementById('printJobNumber');
+  const headerInstallDate = document.getElementById('printInstallDate');
   const headerAddress = document.getElementById('printAddress');
+  const headerBuilder = document.getElementById('printBuilder');
+  const headerProfileName = document.getElementById('printProfileName');
+  const headerProfilePhone = document.getElementById('printProfilePhone');
   const printTemplateVersion = document.getElementById('printTemplateVersion');
   const printTemplateDate = document.getElementById('printTemplateDate');
   const notes = document.getElementById('printNotes');
@@ -4005,7 +4102,11 @@ function preparePrint(){
   }
 
   if(headerJob) headerJob.innerText = jobNumber.value.trim() || 'N/A';
+  if(headerInstallDate) headerInstallDate.innerText = installDate.value || 'N/A';
   if(headerAddress) headerAddress.innerText = jobAddress.value.trim() || 'N/A';
+  if(headerBuilder) headerBuilder.innerText = jobBuilder.value.trim() || 'N/A';
+  if(headerProfileName) headerProfileName.innerText = USER_PROFILE.name || 'N/A';
+  if(headerProfilePhone) headerProfilePhone.innerText = USER_PROFILE.phone || 'N/A';
   if(printTemplateVersion) printTemplateVersion.innerText = 'Template v' + String(TEMPLATE_VERSION).padStart(2,'0');
   if(printTemplateDate) printTemplateDate.innerText = formatPrintDate(new Date());
   if(notes){
@@ -4124,6 +4225,7 @@ function preparePrint(){
 }
 
 function restorePrintState(){
+  document.body.classList.remove('printing-jsa');
   const table = document.querySelector('table');
   const printMessage = document.getElementById('printEmptyMessage');
   const tbody = document.getElementById('itemRows');
@@ -4150,6 +4252,42 @@ function restorePrintState(){
 }
 
 window.onafterprint = restorePrintState;
+
+function formatJsaDate(value){
+  const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(value || ''));
+  return match ? `${match[3]}/${match[2]}/${match[1].slice(-2)}` : '';
+}
+
+function safeJsaFileName(jobNumber){
+  const cleaned = String(jobNumber || '').trim().replace(/[\\/:*?"<>|]/g, '-');
+  return `JSA - ${cleaned || 'Untitled Job'}.pdf`;
+}
+
+function printJsa(){
+  const job = getCurrentJob() || createEmptyJob();
+  const setText = (id, value)=>{
+    const element = document.getElementById(id);
+    if(element) element.textContent = value || '';
+  };
+
+  setText('jsaJobNumber', job.jobNumber || '');
+  setText('jsaPhone', USER_PROFILE.phone || '');
+  setText('jsaDate', formatJsaDate(job.installDate));
+  setText('jsaContractor', USER_PROFILE.name || '');
+  setText('jsaAddress', job.address || '');
+  document.querySelectorAll('.jsa-responsible').forEach(cell=>{
+    cell.textContent = USER_PROFILE.name || '';
+  });
+
+  const previousTitle = document.title;
+  document.title = safeJsaFileName(job.jobNumber);
+  document.body.classList.add('printing-jsa');
+  window.print();
+  setTimeout(()=>{
+    document.title = previousTitle;
+    document.body.classList.remove('printing-jsa');
+  }, 1000);
+}
 
 function printJob(){
   let pricedRows = 0;
