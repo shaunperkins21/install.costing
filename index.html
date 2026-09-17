@@ -373,7 +373,7 @@ input:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 
           <td id="t0" class="line-total currency"></td>
           <td class="print-hide" style="text-align:center;"></td>
         </tr><tr>
-            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Bench Cabinets</span></div><div class="item-note">per door</div></div></td>
+            <td class="item-name"><div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Bench Cabinets</span></div><div class="item-note">per door/ drawer unit</div></div></td>
             <td class="unit-price price"><input id="p1" class="currency" value="14" oninput="priceChanged(1)" disabled="" style="border: 1px solid rgb(209, 213, 219); background: rgb(248, 250, 252);"></td>
             <td class="qty-cell qty">
               <input id="q1" value="" oninput="qtyChanged(1)" onblur="finaliseQtyInput(this)">
@@ -1013,7 +1013,7 @@ const DEFAULT_TEMPLATE =   [
         "rowType": "item",
         "id": "row_mrlukxfm_u8q8e0_1"
       },
-      "per door"
+      "per door/ drawer unit"
     ],
     [
       "Under bench Oven",
@@ -2152,12 +2152,12 @@ const DEFAULT_TEMPLATE =   [
   ];
 
 const APPLICATION_VERSION = '10.0';
-let TEMPLATE_VERSION = 8;
+let TEMPLATE_VERSION = 9;
 let TEMPLATE_PUBLISHED_DATE = '18 Sep 2026';
-let TEMPLATE_PUBLISHED_TIME = '07:57';
+let TEMPLATE_PUBLISHED_TIME = '08:08';
 const STORAGE_JOBS_KEY = 'jc_jobs';
 const STORAGE_USER_PROFILE_KEY = 'jc_user_profile';
-const DEFAULT_USER_PROFILE = {"name":"shaun perkins","phone":"0432780234"};
+const DEFAULT_USER_PROFILE = {"name":"YOUR NAME","phone":"YOUR PHONE NUMBER"};
 
 function normalizeUserProfile(profile){
   return {
